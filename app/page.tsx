@@ -12,17 +12,15 @@ import EcoSection from "@/components/sections/EcoSection";
 import FaqSection from "@/components/sections/FaqSection";
 import CtaSection from "@/components/sections/CtaSection";
 
-export const metadata: Metadata = {
+  export const metadata: Metadata = {
   title: "FriendsMove – Professionelle Umzüge im Rhein-Neckar-Gebiet",
   description:
-    "Ihr zuverlässiges Umzugsunternehmen in Mannheim, Heidelberg, Ludwigshafen & Umgebung. Professionelle Umzüge, Umzugshelfer, Transporter mit Fahrer und individuelle Angebote. Jetzt koste>
+    "Ihr zuverlässiges Umzugsunternehmen in Mannheim, Heidelberg, Ludwigshafen und Umgebung. Professionelle Umzüge, Umzugshelfer, Transporter mit Fahrer und individuelle Angebote. Jetzt kostenlos anfragen.",
   alternates: { canonical: "https://www.friendsmove.de" },
   openGraph: {
     title: "FriendsMove – Stressfrei umziehen im Rhein-Neckar-Gebiet",
     description:
-      "Professionelle Umzüge für Privatpersonen und Unternehmen. Transparent, vollversichert und regional.",
-    url: "https://www.friendsmove.de",
-    type: "website",
+      "Professionelle Umzüge und Transporte in Mannheim, Heidelberg, Ludwigshafen und Umgebung.",
   },
 };
 
