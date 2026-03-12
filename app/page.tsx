@@ -1,13 +1,46 @@
-export default function Home() {
+import type { Metadata } from "next";
+import HeroSection from "@/components/sections/HeroSection";
+import HeroCtaStrip from "@/components/sections/HeroCtaStrip";
+import TrustStrip from "@/components/ui/TrustStrip";
+import ProcessCinematic from "@/components/sections/ProcessCinematic";
+import ServicesElite from "@/components/sections/ServicesElite";
+import OptionsSection from "@/components/sections/OptionsSection";
+import WhySection from "@/components/sections/WhySection";
+import RegionsSection from "@/components/sections/RegionsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import EcoSection from "@/components/sections/EcoSection";
+import FaqSection from "@/components/sections/FaqSection";
+import CtaSection from "@/components/sections/CtaSection";
+
+export const metadata: Metadata = {
+  title: "FriendsMove – Professionelle Umzüge im Rhein-Neckar-Gebiet",
+  description:
+    "Ihr zuverlässiges Umzugsunternehmen in Mannheim, Heidelberg, Ludwigshafen & Umgebung. Professionelle Umzüge, Umzugshelfer, Transporter mit Fahrer und individuelle Angebote. Jetzt koste>
+  alternates: { canonical: "https://www.friendsmove.de" },
+  openGraph: {
+    title: "FriendsMove – Stressfrei umziehen im Rhein-Neckar-Gebiet",
+    description:
+      "Professionelle Umzüge für Privatpersonen und Unternehmen. Transparent, vollversichert und regional.",
+    url: "https://www.friendsmove.de",
+    type: "website",
+  },
+};
+
+export default function HomePage() {
   return (
-    <main style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100vh",
-      fontFamily: "sans-serif"
-    }}>
-      <h1>Website wird aktuell überarbeitet. Bitte später wiederkommen.</h1>
-    </main>
+    <>
+      <HeroSection />
+      <HeroCtaStrip />
+      <TrustStrip />
+      <ProcessCinematic />
+      <ServicesElite />
+      <OptionsSection />
+      <WhySection />
+      <RegionsSection />
+      <TestimonialsSection />
+      <EcoSection />
+      <FaqSection />
+      <CtaSection />
+    </>
   );
 }
