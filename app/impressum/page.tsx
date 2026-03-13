@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import { PHONE_DISPLAY, EMAIL, ADDRESS, SITE_NAME } from "@/lib/seo";
+import { PHONE, PHONE_DISPLAY, EMAIL, ADDRESS, SITE_NAME } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Impressum | FriendsMove",
@@ -30,7 +30,7 @@ export default function ImpressumPage() {
           <section aria-labelledby="kontakt-heading">
             <h2 id="kontakt-heading" className="font-display font-bold text-xl text-brand-dark mb-4">Kontakt</h2>
             <div className="card p-6 flex flex-col gap-2">
-              <p>Telefon: <a href={`tel:+49621000000`} className="text-brand-accent hover:underline">{PHONE_DISPLAY}</a></p>
+              <p>Telefon: <a href={`tel:${PHONE}`} className="text-brand-accent hover:underline">{PHONE_DISPLAY}</a></p>
               <p>E-Mail: <a href={`mailto:${EMAIL}`} className="text-brand-accent hover:underline">{EMAIL}</a></p>
             </div>
           </section>

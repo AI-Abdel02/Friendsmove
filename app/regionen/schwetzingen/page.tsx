@@ -45,11 +45,11 @@ export default function SchwetzingenPage() {
               <span className="text-brand-green font-semibold">Lokale Besonderheit: </span>
               historischer Ortskern, Schlosspark-Umgebung
             </p>
-            <a href={"tel:" + ""} className="flex items-center gap-3 bg-white/10 border border-white/20 rounded-xl px-5 py-3 w-fit hover:bg-white/20 transition-colors">
+            <a href={`tel:${PHONE}`} className="flex items-center gap-3 bg-white/10 border border-white/20 rounded-xl px-5 py-3 w-fit hover:bg-white/20 transition-colors">
               <span className="text-brand-green text-xl" aria-hidden="true">📞</span>
               <div>
                 <p className="text-white/60 text-xs">Jetzt anrufen</p>
-                <p className="text-white font-semibold"></p>
+                <p className="text-white font-semibold">{PHONE_DISPLAY}</p>
               </div>
             </a>
           </div>

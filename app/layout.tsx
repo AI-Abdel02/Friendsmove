@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     siteName: SITE_NAME,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/hero.jpg", width: 1600, height: 896 }],
   },
   twitter: { card: "summary_large_image" },
   robots: {
@@ -47,8 +47,7 @@ const localBusinessSchema = {
   url: SITE_URL,
   telephone: "+4915203237063",
   email: "info@friendsmove.de",
-  logo: `${SITE_URL}/logo.png`,
-  image: `${SITE_URL}/og-image.jpg`,
+  image: `${SITE_URL}/hero.jpg`,
   address: {
     "@type": "PostalAddress",
     streetAddress: "Jahnstraße 28A",
