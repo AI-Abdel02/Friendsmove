@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/check24",
-        destination: "/",
+        destination: "https://app.friendsmove.com/web/public/vue-app/lead",
         permanent: true,
       },
     ];
