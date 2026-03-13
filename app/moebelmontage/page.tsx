@@ -4,7 +4,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import QuoteForm from "@/components/ui/QuoteForm";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import CtaSection from "@/components/sections/CtaSection";
-import { CITIES } from "@/lib/seo";
+import { CITIES, SITE_URL } from "@/lib/seo";
 import type { FaqItem } from "@/types";
 
 export const metadata: Metadata = {
@@ -12,6 +12,20 @@ export const metadata: Metadata = {
   description:
     "Professionelle Möbelmontage in Lambsheim, Frankenthal, Mannheim, Heidelberg und der Rhein-Neckar-Region. Fachgerechter Auf- und Abbau von Möbeln für Privat- und Firmenumzüge.",
   alternates: { canonical: "https://www.friendsmove.de/moebelmontage" },
+  openGraph: {
+    title: "Möbelmontage Rhein-Neckar – Fachgerecht & Zuverlässig | FriendsMove",
+    description:
+      "Auf- und Abbau von Möbeln aller Art in Mannheim, Heidelberg, Ludwigshafen und der Rhein-Neckar-Region.",
+    url: "https://www.friendsmove.de/moebelmontage",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Möbelmontage Rhein-Neckar | FriendsMove",
+    description: "Professioneller Möbelauf- und Abbau in der Rhein-Neckar-Region.",
+  },
 };
 
 const FAQS: FaqItem[] = [
@@ -71,8 +85,28 @@ const STEPS = [
 ];
 
 export default function MoebelmontagePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Möbelmontage", item: `${SITE_URL}/moebelmontage` },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section
         className="relative overflow-hidden bg-brand-dark py-20 md:py-28"
         aria-labelledby="page-heading"

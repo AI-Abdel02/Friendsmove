@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   description:
     "Professionelle Küchenmontage in Lambsheim, Mannheim, Heidelberg und der Rhein-Neckar-Region. Fachgerechter Auf- und Abbau aller Küchensysteme – auch ohne Umzug buchbar. Jetzt anfragen.",
   alternates: { canonical: "https://www.friendsmove.de/kuechenmontage" },
+  openGraph: {
+    title: "Küchenmontage Lambsheim & Rhein-Neckar – FriendsMove",
+    description: "Professioneller Auf- und Abbau von Einbauküchen aller Hersteller in Lambsheim und der Rhein-Neckar-Region.",
+    url: "https://www.friendsmove.de/kuechenmontage",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Küchenmontage Rhein-Neckar | FriendsMove",
+    description: "Fachgerechte Küchenmontage in Lambsheim und der Rhein-Neckar-Region. Auch ohne Umzug buchbar.",
+  },
 };
 
 const serviceSchema = {
@@ -83,10 +96,20 @@ const STEPS = [
 ];
 
 export default function KuechenmontagePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="relative overflow-hidden bg-brand-dark py-20 md:py-28" aria-labelledby="page-heading">
         <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true"

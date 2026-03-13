@@ -4,7 +4,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import QuoteForm from "@/components/ui/QuoteForm";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import CtaSection from "@/components/sections/CtaSection";
-import { CITIES } from "@/lib/seo";
+import { CITIES, SITE_URL } from "@/lib/seo";
 import type { FaqItem } from "@/types";
 
 export const metadata: Metadata = {
@@ -12,6 +12,20 @@ export const metadata: Metadata = {
   description:
     "Professionelle Firmenumzüge in Lambsheim, Frankenthal, Mannheim, Heidelberg und der Rhein-Neckar-Region. Strukturierte Planung, minimale Betriebsunterbrechung, Wochenendtermine und sichere Durchführung.",
   alternates: { canonical: "https://www.friendsmove.de/firmenumzug" },
+  openGraph: {
+    title: "Firmenumzug Rhein-Neckar – Professionell & Terminsicher | FriendsMove",
+    description:
+      "Büro- und Betriebsumzüge mit minimaler Betriebsunterbrechung in Mannheim, Heidelberg, Ludwigshafen und der Rhein-Neckar-Region.",
+    url: "https://www.friendsmove.de/firmenumzug",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Firmenumzug Rhein-Neckar | FriendsMove",
+    description: "Büro- und Betriebsumzüge mit minimaler Betriebsunterbrechung. Wochenendtermine möglich.",
+  },
 };
 
 const FAQS: FaqItem[] = [
@@ -43,8 +57,28 @@ const FAQS: FaqItem[] = [
 ];
 
 export default function FirmenumzugPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Firmenumzug", item: `${SITE_URL}/firmenumzug` },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <section
         className="relative overflow-hidden bg-brand-dark py-20 md:py-28"

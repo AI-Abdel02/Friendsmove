@@ -1,16 +1,29 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import QuoteForm from "@/components/ui/QuoteForm";
-import { PHONE, PHONE_DISPLAY, EMAIL, ADDRESS } from "@/lib/seo";
+import { PHONE, PHONE_DISPLAY, EMAIL, ADDRESS, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Kontakt & Angebot anfragen | FriendsMove",
   description:
     "Kontaktieren Sie FriendsMove für ein kostenloses Umzugsangebot in Mannheim, Heidelberg und der Rhein-Neckar-Region. Antwort meist innerhalb von 60 Minuten.",
   alternates: { canonical: "https://www.friendsmove.de/kontakt" },
+  openGraph: {
+    title: "Kontakt & Kostenloses Umzugsangebot | FriendsMove",
+    description:
+      "Kontaktieren Sie FriendsMove für ein kostenloses Umzugsangebot. Antwort in 60 Minuten.",
+    url: "https://www.friendsmove.de/kontakt",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kontakt & Kostenloses Umzugsangebot | FriendsMove",
+    description: "Umzugsangebot anfragen – Antwort in 60 Minuten.",
+  },
 };
 
 const CONTACT = [
@@ -67,35 +80,20 @@ const WHY = [
 ];
 
 export default function KontaktPage() {
-  const jsonLd = {
+  const breadcrumbSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "FriendsMove",
-    telephone: PHONE_DISPLAY,
-    email: EMAIL,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: ADDRESS.street,
-      postalCode: ADDRESS.zip,
-      addressLocality: ADDRESS.city,
-      addressCountry: "DE",
-    },
-    areaServed: [
-      "Mannheim",
-      "Heidelberg",
-      "Ludwigshafen",
-      "Frankenthal",
-      "Weinheim",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Kontakt", item: `${SITE_URL}/kontakt` },
     ],
-    url: "https://www.friendsmove.de",
   };
 
   return (
     <>
-      <Script
-        id="kontakt-schema"
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* HERO */}

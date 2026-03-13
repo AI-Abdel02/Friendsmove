@@ -16,6 +16,14 @@ export const metadata: Metadata = {
     title: "Halteverbotszone beantragen – FriendsMove Rhein-Neckar",
     description: "Halteverbotszone für Umzüge im Rhein-Neckar-Gebiet – Antragstellung und Aufstellung durch FriendsMove.",
     url: "https://www.friendsmove.de/halteverbotszone",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Halteverbotszone Rhein-Neckar | FriendsMove",
+    description: "Halteverbotszone für Ihren Umzug – Antragstellung und Aufstellung durch FriendsMove.",
   },
 };
 
@@ -57,10 +65,20 @@ const STEPS = [
 ];
 
 export default function HalteverbotszonePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="relative overflow-hidden bg-brand-dark py-20 md:py-28" aria-labelledby="page-heading">
         <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true"

@@ -30,6 +30,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://www.friendsmove.de/regionen/${city.slug}`,
     },
+    openGraph: {
+      title,
+      description,
+      url: `https://www.friendsmove.de/regionen/${city.slug}`,
+      siteName: "FriendsMove",
+      locale: "de_DE",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title,
+      description,
+    },
   };
 }
 

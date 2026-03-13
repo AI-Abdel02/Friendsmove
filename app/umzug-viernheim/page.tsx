@@ -2,7 +2,7 @@ import { CITY_PAGES } from "@/lib/cityData";
 import { buildCityPageMetadata } from "@/lib/seo";
 import UmzugCityTemplate from "@/components/templates/UmzugCityTemplate";
 
-const city = CITY_PAGES.mannheim;
+const city = CITY_PAGES.viernheim;
 
 export const metadata = buildCityPageMetadata(city);
 

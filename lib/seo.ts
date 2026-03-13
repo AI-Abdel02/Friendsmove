@@ -176,9 +176,55 @@ export const localBusinessSchema = {
 
 export function cityBusinessSchema(cityName: string, citySlug: string) {
   return {
-    ...localBusinessSchema,
-    name: `${SITE_NAME} ${cityName}`,
+    "@context": "https://schema.org",
+    "@type": "MovingCompany",
+    "@id": `${SITE_URL}/regionen/${citySlug}#local-business`,
+    name: SITE_NAME,
     url: `${SITE_URL}/regionen/${citySlug}`,
-    areaServed: [cityName],
+    email: EMAIL,
+    telephone: PHONE,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: ADDRESS.street,
+      postalCode: ADDRESS.zip,
+      addressLocality: ADDRESS.city,
+      addressRegion: ADDRESS.region,
+      addressCountry: "DE",
+    },
+    areaServed: {
+      "@type": "City",
+      name: cityName,
+    },
+    sameAs: ["https://share.google/Eh9LHySv1Rh9X6SLw"],
+  };
+}
+
+/* =====================================================
+   CITY PAGE METADATA BUILDER
+===================================================== */
+
+import type { Metadata } from "next";
+import type { CityPageData } from "@/lib/cityData";
+
+export function buildCityPageMetadata(city: CityPageData): Metadata {
+  return {
+    title: city.metaTitle,
+    description: city.metaDescription,
+    alternates: {
+      canonical: `${SITE_URL}${city.path}`,
+    },
+    openGraph: {
+      title: city.ogTitle,
+      description: city.ogDescription,
+      url: `${SITE_URL}${city.path}`,
+      siteName: SITE_NAME,
+      locale: "de_DE",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: city.ogTitle,
+      description: city.ogDescription,
+    },
   };
 }

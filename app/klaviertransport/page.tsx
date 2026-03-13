@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   description:
     "Professioneller Klaviertransport in Lambsheim, Frankenthal, Mannheim, Heidelberg und der Rhein-Neckar-Region. Sicherer Transport von Klavieren und Flügeln durch erfahrene Umzugsprofis.",
   alternates: { canonical: "https://www.friendsmove.de/klaviertransport" },
+  openGraph: {
+    title: "Klaviertransport Lambsheim & Rhein-Neckar – FriendsMove",
+    description: "Professioneller Klaviertransport in Lambsheim und der Rhein-Neckar-Region. Sicher für Klavier und Flügel.",
+    url: "https://www.friendsmove.de/klaviertransport",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Klaviertransport Rhein-Neckar | FriendsMove",
+    description: "Sicherer Klaviertransport in Lambsheim und der Rhein-Neckar-Region. Für Klavier und Flügel.",
+  },
 };
 
 const FAQS: FaqItem[] = [
@@ -70,9 +83,41 @@ const STEPS = [
   },
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Klaviertransport",
+  serviceType: "PianoMovingService",
+  provider: { "@type": "MovingCompany", name: "FriendsMove", telephone: "+4915203237063", url: "https://www.friendsmove.de" },
+  areaServed: { "@type": "AdministrativeArea", name: "Rhein-Neckar" },
+  description: "Professioneller Klaviertransport in Lambsheim und der Rhein-Neckar-Region. Für Klaviere und Flügel.",
+  url: "https://www.friendsmove.de/klaviertransport",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Startseite", item: "https://www.friendsmove.de" },
+    { "@type": "ListItem", position: 2, name: "Klaviertransport", item: "https://www.friendsmove.de/klaviertransport" },
+  ],
+};
+
 export default function KlaviertransportPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section
         className="relative overflow-hidden bg-brand-dark py-20 md:py-28"
         aria-labelledby="page-heading"

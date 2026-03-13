@@ -4,7 +4,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import QuoteForm from "@/components/ui/QuoteForm";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import CtaSection from "@/components/sections/CtaSection";
-import { CITIES } from "@/lib/seo";
+import { CITIES, SITE_URL } from "@/lib/seo";
 import type { FaqItem } from "@/types";
 
 export const metadata: Metadata = {
@@ -12,6 +12,20 @@ export const metadata: Metadata = {
   description:
     "Professioneller Fernumzug ab Lambsheim, Frankenthal und Rhein-Neckar. Sicherer Transport, strukturierte Planung und zuverlässige Durchführung deutschlandweit.",
   alternates: { canonical: "https://www.friendsmove.de/fernumzug" },
+  openGraph: {
+    title: "Fernumzug ab Rhein-Neckar – Deutschlandweit | FriendsMove",
+    description:
+      "Professioneller Fernumzug aus der Rhein-Neckar-Region. Vollversichert, strukturiert geplant, Festpreis möglich.",
+    url: "https://www.friendsmove.de/fernumzug",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fernumzug ab Rhein-Neckar – Deutschlandweit | FriendsMove",
+    description: "Sicherer Fernumzug aus Lambsheim & Rhein-Neckar. Festpreis möglich.",
+  },
 };
 
 const FAQS: FaqItem[] = [
@@ -71,8 +85,28 @@ const STEPS = [
 ];
 
 export default function FernumzugPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Fernumzug", item: `${SITE_URL}/fernumzug` },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <section
         className="relative overflow-hidden bg-brand-dark py-20 md:py-28"

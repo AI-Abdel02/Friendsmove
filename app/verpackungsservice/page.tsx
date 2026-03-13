@@ -16,6 +16,14 @@ export const metadata: Metadata = {
     title: "Verpackungsservice für Umzüge – FriendsMove Rhein-Neckar",
     description: "Professionelles Ein- und Auspacken für Ihren Umzug im Rhein-Neckar-Gebiet.",
     url: "https://www.friendsmove.de/verpackungsservice",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Verpackungsservice Rhein-Neckar | FriendsMove",
+    description: "Professioneller Verpackungsservice für Umzüge in Lambsheim und der Rhein-Neckar-Region.",
   },
 };
 
@@ -57,10 +65,20 @@ const STEPS = [
 ];
 
 export default function VerpackungsservicePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="relative overflow-hidden bg-brand-dark py-20 md:py-28" aria-labelledby="page-heading">
         <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true"

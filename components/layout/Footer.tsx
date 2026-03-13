@@ -20,40 +20,8 @@ const ADDRESS = {
 };
 
 export default function Footer() {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "MovingCompany",
-    name: "FriendsMove",
-    url: "https://www.friendsmove.de",
-    email: EMAIL,
-    telephone: PRIMARY_PHONE,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: ADDRESS.street,
-      postalCode: ADDRESS.zip,
-      addressLocality: ADDRESS.city,
-      addressCountry: ADDRESS.country,
-    },
-    areaServed: [
-      "Lambsheim",
-      "Frankenthal",
-      "Mannheim",
-      "Heidelberg",
-      "Ludwigshafen",
-      "Rhein-Neckar",
-      "Vorderpfalz",
-    ],
-    sameAs: [GOOGLE_REVIEWS_URL],
-  };
-
   return (
     <footer className="relative overflow-hidden bg-[linear-gradient(180deg,#072218_0%,#0a2a1d_45%,#072117_100%)] text-white" role="contentinfo">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema),
-        }}
-      />
 
       {/* ambient glow */}
       <div

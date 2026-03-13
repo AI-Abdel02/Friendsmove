@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/impressum", "/datenschutz"],
+        disallow: ["/api/"],
       },
     ],
     sitemap: "https://www.friendsmove.de/sitemap.xml",

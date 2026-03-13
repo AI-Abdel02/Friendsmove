@@ -2,17 +2,40 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import CtaSection from "@/components/sections/CtaSection";
+import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Über uns – Das Team hinter FriendsMove | FriendsMove",
   description:
     "Lernen Sie das Team von FriendsMove kennen. Regionaler Umzugspartner im Rhein-Neckar-Gebiet – mit echter Leidenschaft für saubere, stressfreie Umzüge.",
   alternates: { canonical: "https://www.friendsmove.de/ueber-uns" },
+  openGraph: {
+    title: "Über uns – Das Team hinter FriendsMove",
+    description: "Regionaler Umzugspartner im Rhein-Neckar-Gebiet. Zuverlässig, transparent und mit echter Leidenschaft seit 2015.",
+    url: "https://www.friendsmove.de/ueber-uns",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Über FriendsMove | Umzugsunternehmen Rhein-Neckar",
+    description: "Regionaler Umzugspartner im Rhein-Neckar-Gebiet seit 2015.",
+  },
 };
 
 export default function UeberUnsPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Über uns", item: `${SITE_URL}/ueber-uns` },
+    ],
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="bg-brand-dark py-20 md:py-28" aria-labelledby="about-heading">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

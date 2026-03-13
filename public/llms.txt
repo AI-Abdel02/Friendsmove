@@ -1,0 +1,11 @@
+# llms.txt for FriendsMove – https://www.friendsmove.de
+# Generated: 2026-03-13
+
+# FriendsMove is a professional moving company serving the Rhein-Neckar region in Germany.
+# We offer residential moves, office relocations, furniture assembly, and more.
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.friendsmove.de/sitemap.xml

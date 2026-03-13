@@ -4,7 +4,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import QuoteForm from "@/components/ui/QuoteForm";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import CtaSection from "@/components/sections/CtaSection";
-import { CITIES } from "@/lib/seo";
+import { CITIES, SITE_URL } from "@/lib/seo";
 import type { FaqItem } from "@/types";
 
 export const metadata: Metadata = {
@@ -12,6 +12,20 @@ export const metadata: Metadata = {
   description:
     "Professioneller Privatumzug in Lambsheim, Frankenthal, Mannheim, Heidelberg und der gesamten Rhein-Neckar-Region. Festpreis möglich, vollversichert, kurzfristig verfügbar. Jetzt kostenlos anfragen.",
   alternates: { canonical: "https://www.friendsmove.de/privatumzug" },
+  openGraph: {
+    title: "Privatumzug Rhein-Neckar – Vollversichert & Fair | FriendsMove",
+    description:
+      "Stressfreier Privatumzug in Mannheim, Heidelberg, Ludwigshafen und der Rhein-Neckar-Region. Festpreis möglich, kurzfristig verfügbar.",
+    url: "https://www.friendsmove.de/privatumzug",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privatumzug Rhein-Neckar | FriendsMove",
+    description: "Stressfreier Privatumzug. Festpreis möglich, vollversichert.",
+  },
 };
 
 const FAQS: FaqItem[] = [
@@ -71,8 +85,28 @@ const STEPS = [
 ];
 
 export default function PrivatumzugPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Privatumzug", item: `${SITE_URL}/privatumzug` },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <section
         className="relative overflow-hidden bg-brand-dark py-20 md:py-28"

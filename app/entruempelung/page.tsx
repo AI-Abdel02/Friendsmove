@@ -16,6 +16,14 @@ export const metadata: Metadata = {
     title: "Entrümpelung Lambsheim & Rhein-Neckar – FriendsMove",
     description: "Kurzfristige Entrümpelung und Haushaltsauflösung im Rhein-Neckar-Gebiet. Professionell, sauber und inklusive Entsorgung.",
     url: "https://www.friendsmove.de/entruempelung",
+    siteName: "FriendsMove",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Entrümpelung Rhein-Neckar | FriendsMove",
+    description: "Kurzfristige Entrümpelung in Lambsheim und der Rhein-Neckar-Region – inklusive Entsorgung.",
   },
 };
 
@@ -62,10 +70,20 @@ const STEPS = [
 ];
 
 export default function EntruempelungPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="relative overflow-hidden bg-brand-dark py-20 md:py-28" aria-labelledby="page-heading">
         <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true"

@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { CITY_PAGES, CITY_PAGE_SLUGS } from "@/lib/cityData";
 
 const BASE = "https://www.friendsmove.de";
 
@@ -27,35 +28,10 @@ const STATIC_PAGES: Array<{
   { path: "/ueber-uns",           freq: "monthly",  priority: 0.65 },
   // Regions hub
   { path: "/regionen",            freq: "monthly",  priority: 0.78 },
-  // Lambsheim-specific landing page
-  { path: "/umzug-lambsheim",     freq: "monthly",  priority: 0.85 },
 ];
 
-const REGIONEN_SLUGS = [
-  "lambsheim",
-  "frankenthal",
-  "mannheim",
-  "heidelberg",
-  "ludwigshafen",
-  "schwetzingen",
-  "viernheim",
-  "weinheim",
-  "frankfurt",
-] as const;
-
-// Intent-based city landing pages (umzug-*)
-const UMZUG_CITIES = [
-  "mannheim",
-  "heidelberg",
-  "ludwigshafen",
-  "frankfurt",
-  "schwetzingen",
-  "weinheim",
-  "frankenthal",
-] as const;
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastMod = new Date("2025-11-01");
+  const lastMod = new Date();
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_PAGES.map(({ path, freq, priority }) => ({
     url: `${BASE}${path}`,
@@ -64,17 +40,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 
-  const regionEntries: MetadataRoute.Sitemap = REGIONEN_SLUGS.map((slug) => ({
-    url: `${BASE}/regionen/${slug}`,
+  // /regionen/{slug} pages — derived from city data
+  const regionEntries: MetadataRoute.Sitemap = CITY_PAGE_SLUGS.map((slug) => ({
+    url: `${BASE}/regionen/${CITY_PAGES[slug].regionenSlug}`,
     lastModified: lastMod,
-    changeFrequency: "monthly",
+    changeFrequency: "monthly" as const,
     priority: 0.82,
   }));
 
-  const umzugCityEntries: MetadataRoute.Sitemap = UMZUG_CITIES.map((city) => ({
-    url: `${BASE}/umzug-${city}`,
+  // /umzug-{slug} intent pages — derived from city data (single source of truth)
+  const umzugCityEntries: MetadataRoute.Sitemap = CITY_PAGE_SLUGS.map((slug) => ({
+    url: `${BASE}${CITY_PAGES[slug].path}`,
     lastModified: lastMod,
-    changeFrequency: "monthly",
+    changeFrequency: "monthly" as const,
     priority: 0.88,
   }));
 
