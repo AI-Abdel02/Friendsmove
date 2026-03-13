@@ -3,6 +3,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/check24",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [
           {
