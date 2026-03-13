@@ -31,6 +31,7 @@ export default function CookieBanner() {
   const dismiss = (type: "all" | "necessary") => {
     try {
       localStorage.setItem(STORAGE_KEY, type);
+      window.dispatchEvent(new CustomEvent("fm_consent", { detail: type }));
     } catch {
       // ignore
     }

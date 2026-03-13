@@ -5,6 +5,8 @@ import Footer from "@/components/layout/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 import CookieBanner from "@/components/ui/CookieBanner";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/react";
+import AnalyticsScripts from "@/components/analytics/AnalyticsScripts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -139,6 +141,8 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <Footer />
           <CookieBanner />
+          <AnalyticsScripts />
+          <Analytics />
         </LanguageProvider>
       </body>
     </html>

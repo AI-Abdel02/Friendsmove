@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 const SIZES_DE = ["1 Zimmer", "2 Zimmer", "3 Zimmer", "4 Zimmer", "5+ Zimmer", "Büro / Betrieb"];
 const SIZES_EN = ["1 room", "2 rooms", "3 rooms", "4 rooms", "5+ rooms", "Office / Business"];
@@ -78,6 +79,7 @@ export default function QuoteForm({
         return;
       }
       setStep(2);
+      trackEvent("quote_form_start");
       return;
     }
 
@@ -87,6 +89,7 @@ export default function QuoteForm({
     }
 
     setSubmitted(true);
+    trackEvent("quote_form_submit");
   };
 
   const goBack = () => {

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 const LEAD_URL = "https://app.friendsmove.com/web/public/vue-app/lead";
 const WHATSAPP_URL = "https://wa.me/491742083291";
@@ -47,6 +48,10 @@ export default function Navigation() {
   ];
 
   const isLight = scrolled;
+
+  const handlePhoneClick = () => trackEvent("phone_click", { method: "tel" });
+  const handleWhatsAppClick = () => trackEvent("whatsapp_click");
+  const handleLeadClick = () => trackEvent("contact_cta_click", { location: "nav" });
 
   return (
     <>
@@ -134,6 +139,7 @@ export default function Navigation() {
               {/* Phone (2xl+) */}
               <a
                 href="tel:+4915203237063"
+                onClick={handlePhoneClick}
                 className={`hidden 2xl:inline-flex min-h-[52px] items-center justify-center rounded-full px-5 text-sm font-bold whitespace-nowrap transition ${
                   isLight
                     ? "border border-black/10 bg-[#ECE9E0] text-[#062014]"
@@ -146,6 +152,7 @@ export default function Navigation() {
               {/* Primary CTA */}
               <a
                 href={LEAD_URL}
+                onClick={handleLeadClick}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex min-h-[52px] items-center justify-center rounded-full bg-[#00FF88] px-6 text-sm font-extrabold whitespace-nowrap text-[#062014] shadow-[0_14px_35px_rgba(0,255,136,0.26)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(0,255,136,0.35)]"
@@ -195,6 +202,7 @@ export default function Navigation() {
             {/* Center — offer pill (desktop) */}
             <a
               href={LEAD_URL}
+              onClick={handleLeadClick}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative hidden lg:flex items-center gap-4 overflow-hidden rounded-full border border-[#0d5b3b]/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.10)_100%)] px-6 py-2.5 text-[13px] font-extrabold text-[#052519] shadow-[0_12px_28px_rgba(5,37,25,0.14),inset_0_1px_0_rgba(255,255,255,0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-[1px] hover:shadow-[0_16px_34px_rgba(5,37,25,0.18),inset_0_1px_0_rgba(255,255,255,0.4)]"
@@ -214,6 +222,7 @@ export default function Navigation() {
               {/* WhatsApp button */}
               <a
                 href={WHATSAPP_URL}
+                onClick={handleWhatsAppClick}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp kontaktieren"
@@ -233,6 +242,7 @@ export default function Navigation() {
               {/* Phone — xl+ only */}
               <a
                 href="tel:+4915203237063"
+                onClick={handlePhoneClick}
                 className="hidden xl:inline-flex items-center justify-center rounded-full border border-[#0d5b3b]/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.14)_100%)] px-5 py-2.5 text-[14px] font-extrabold text-[#052519] shadow-[0_8px_20px_rgba(5,37,25,0.10),inset_0_1px_0_rgba(255,255,255,0.28)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px]"
               >
                 +49 1520 3237063
@@ -241,6 +251,7 @@ export default function Navigation() {
               {/* Mobile offer shortcut */}
               <a
                 href={LEAD_URL}
+                onClick={handleLeadClick}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-9 items-center justify-center rounded-full border border-[#0d5b3b]/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.30)_0%,rgba(255,255,255,0.15)_100%)] px-3 text-[12px] font-extrabold text-[#052519] shadow-[0_8px_18px_rgba(5,37,25,0.10)] backdrop-blur-sm lg:hidden"
@@ -310,6 +321,7 @@ export default function Navigation() {
                 </p>
                 <a
                   href={LEAD_URL}
+                  onClick={handleLeadClick}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-full bg-[#00FF88] px-5 text-sm font-extrabold text-[#062014]"
@@ -338,6 +350,7 @@ export default function Navigation() {
                 {/* WhatsApp — prominent in mobile drawer */}
                 <a
                   href={WHATSAPP_URL}
+                  onClick={handleWhatsAppClick}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[#25D366] px-5 text-sm font-bold text-white shadow-[0_8px_24px_rgba(37,211,102,0.20)] transition hover:opacity-90"
@@ -350,6 +363,7 @@ export default function Navigation() {
 
                 <a
                   href="tel:+4915203237063"
+                  onClick={handlePhoneClick}
                   className="flex min-h-[52px] items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-5 text-sm font-bold text-white"
                 >
                   +49 1520 3237063
@@ -395,6 +409,7 @@ export default function Navigation() {
             <div className="border-t border-white/10 p-6">
               <a
                 href={LEAD_URL}
+                onClick={handleLeadClick}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-14 w-full items-center justify-center rounded-full bg-[#00FF88] px-6 text-base font-extrabold text-[#062014] shadow-[0_16px_40px_rgba(0,255,136,0.24)]"

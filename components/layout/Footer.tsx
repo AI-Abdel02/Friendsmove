@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { EMAIL, CITIES, SERVICES } from "@/lib/seo";
+import { trackEvent } from "@/lib/analytics";
 
 const LEAD_URL = "https://app.friendsmove.com/web/public/vue-app/lead";
 
@@ -66,6 +69,7 @@ export default function Footer() {
               <div className="mt-7 flex flex-col gap-3 text-sm">
                 <a
                   href={`tel:${PRIMARY_PHONE}`}
+                  onClick={() => trackEvent("phone_click", { method: "tel" })}
                   className="group flex items-center gap-3 text-white/72 transition-colors hover:text-[#00FF88]"
                 >
                   <svg
@@ -86,6 +90,7 @@ export default function Footer() {
 
                 <a
                   href={`tel:${HOTLINE_PHONE}`}
+                  onClick={() => trackEvent("phone_click", { method: "tel", number: "hotline" })}
                   className="group flex items-center gap-3 text-white/72 transition-colors hover:text-[#00FF88]"
                 >
                   <svg
@@ -262,6 +267,7 @@ export default function Footer() {
 
                 <a
                   href={LEAD_URL}
+                  onClick={() => trackEvent("contact_cta_click", { location: "footer" })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-5 inline-flex rounded-full bg-[#00FF88] px-4 py-2.5 text-sm font-bold text-[#062014] transition hover:opacity-90"
