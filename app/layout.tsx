@@ -120,6 +120,15 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+      </head>
+
+      <body className="font-body antialiased">
         <Script
           id="gtm-script"
           strategy="afterInteractive"
@@ -137,15 +146,6 @@ export default function RootLayout({
           }}
         />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
-          }}
-        />
-      </head>
-
-      <body className="font-body antialiased">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PQZ5T6K8"
