@@ -4,3 +4,8 @@ node_modules
 dist
 build
 *.log
+.env*.local
+
+.env.local
+aichoubahk@gmail.com
+aichoubahk@gmail.com.pub

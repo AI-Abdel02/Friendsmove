@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
@@ -6,7 +7,6 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import CookieBanner from "@/components/ui/CookieBanner";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { Analytics } from "@vercel/analytics/react";
-import AnalyticsScripts from "@/components/analytics/AnalyticsScripts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -111,9 +111,7 @@ const localBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Klaviertransport" } },
     ],
   },
-  sameAs: [
-    "https://share.google/Eh9LHySv1Rh9X6SLw",
-  ],
+  sameAs: ["https://share.google/Eh9LHySv1Rh9X6SLw"],
 };
 
 export default function RootLayout({
@@ -122,6 +120,16 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
+        <Script id="gtm-head" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PQZ5T6K8');
+          `}
+        </Script>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -129,7 +137,17 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body className="font-body antialiased">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PQZ5T6K8"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <LanguageProvider>
           <a
             href="#main-content"
@@ -137,11 +155,11 @@ export default function RootLayout({
           >
             Zum Hauptinhalt springen
           </a>
+
           <Navigation />
           <main id="main-content">{children}</main>
           <Footer />
           <CookieBanner />
-          <AnalyticsScripts />
           <Analytics />
         </LanguageProvider>
       </body>
