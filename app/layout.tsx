@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 import CookieBanner from "@/components/ui/CookieBanner";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
