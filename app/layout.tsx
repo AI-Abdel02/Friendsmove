@@ -4,9 +4,9 @@ import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 import CookieBanner from "@/components/ui/CookieBanner";
-import AnalyticsScripts from "@/components/analytics/AnalyticsScripts";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -129,6 +129,8 @@ export default function RootLayout({
       </head>
 
       <body className="font-body antialiased">
+        <GoogleTagManager gtmId="GTM-PQZ5T6K8" />
+
         <LanguageProvider>
           <a
             href="#main-content"
@@ -141,7 +143,6 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <Footer />
           <CookieBanner />
-          <AnalyticsScripts />
           <Analytics />
         </LanguageProvider>
       </body>

@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run build 2>&1 | tail -60)"
+      "Bash(npm run build 2>&1 | tail -60)",
+      "Bash(git push:*)",
+      "Read(//home/abdelhakaichouba/.local/share/com.vercel.cli/**)",
+      "Read(//home/abdelhakaichouba/.vercel/**)",
+      "Read(//home/abdelhakaichouba/.config/vercel/**)"
     ]
   }
 }
