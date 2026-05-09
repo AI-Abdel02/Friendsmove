@@ -126,13 +126,27 @@ export default function RootLayout({
             __html: JSON.stringify(localBusinessSchema),
           }}
         />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17979182053"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17979182053');
+            `,
+          }}
+        />
       </head>
 
       <body className="font-body antialiased">
         <GoogleTagManager gtmId="GTM-PQZ5T6K8" />
 
         <LanguageProvider>
-          <a
+          
             href="#main-content"
             className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-brand-green focus:px-4 focus:py-2 focus:text-brand-dark"
           >
