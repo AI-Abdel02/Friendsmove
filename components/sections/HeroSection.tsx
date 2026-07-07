@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/i18n";
 
-const LEAD_URL = "https://app.friendsmove.com/web/public/vue-app/lead";
+const LEAD_URL = "https://app.friendsmove.de/web/public/konto";
 const GOOGLE_REVIEWS_URL = "https://share.google/Eh9LHySv1Rh9X6SLw";
 const GOOGLE_WRITE_REVIEW_URL = "https://g.page/r/CbPVHV7GWk9pEAE/review";
 

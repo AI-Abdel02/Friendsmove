@@ -4,7 +4,7 @@ import Link from "next/link";
 import { EMAIL, CITIES, SERVICES } from "@/lib/seo";
 import { trackEvent } from "@/lib/analytics";
 
-const LEAD_URL = "https://app.friendsmove.com/web/public/vue-app/lead";
+const LEAD_URL = "https://app.friendsmove.de/web/public/konto";
 
 const PRIMARY_PHONE = "+4915203237063";
 const PRIMARY_PHONE_DISPLAY = "+49 1520 3237063";

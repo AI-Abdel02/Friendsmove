@@ -2,27 +2,27 @@
   "redirects": [
     {
       "source": "/google",
-      "destination": "https://app.friendsmove.com/web/public/vue-app/lead",
+      "destination": "https://app.friendsmove.de/web/public/konto",
       "permanent": true
     },
     {
       "source": "/facebook",
-      "destination": "https://app.friendsmove.com/web/public/vue-app/lead",
+      "destination": "https://app.friendsmove.de/web/public/konto",
       "permanent": true
     },
     {
       "source": "/whatsapp",
-      "destination": "https://app.friendsmove.com/web/public/vue-app/lead",
+      "destination": "https://app.friendsmove.de/web/public/konto",
       "permanent": true
     },
     {
       "source": "/anruf",
-      "destination": "https://app.friendsmove.com/web/public/vue-app/lead",
+      "destination": "https://app.friendsmove.de/web/public/konto",
       "permanent": true
     },
     {
       "source": "/angebot",
-      "destination": "https://app.friendsmove.com/web/public/vue-app/lead",
+      "destination": "https://app.friendsmove.de/web/public/konto",
       "permanent": true
     }
   ]

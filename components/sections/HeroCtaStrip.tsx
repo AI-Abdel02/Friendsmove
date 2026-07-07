@@ -1,6 +1,6 @@
 import { PHONE, PHONE_DISPLAY } from "@/lib/seo";
 
-const LEAD_URL = "https://app.friendsmove.com/web/public/vue-app/lead";
+const LEAD_URL = "https://app.friendsmove.de/web/public/konto";
 
 export default function HeroCtaStrip() {
   return (

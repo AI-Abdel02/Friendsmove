@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
 
-const LEAD_URL = "https://app.friendsmove.com/web/public/vue-app/lead";
+const LEAD_URL = "https://app.friendsmove.de/web/public/konto";
 const WHATSAPP_URL = "https://wa.me/491742083291";
 
 export default function Navigation() {

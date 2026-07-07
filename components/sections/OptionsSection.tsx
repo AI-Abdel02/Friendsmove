@@ -1,4 +1,4 @@
-const LEAD_URL = "https://app.friendsmove.com/web/public/vue-app/lead";
+const LEAD_URL = "https://app.friendsmove.de/web/public/konto";
 
 const OPTIONS = [
   {
