@@ -146,7 +146,7 @@ export default function RootLayout({
         <GoogleTagManager gtmId="GTM-PQZ5T6K8" />
 
         <LanguageProvider>
-          
+          <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-brand-green focus:px-4 focus:py-2 focus:text-brand-dark"
           >
