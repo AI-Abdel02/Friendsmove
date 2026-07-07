@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-const LEAD_URL = "https://app.friendsmove.de/web/public/konto";
+const LEAD_URL = "https://app.friendsmove.de/web/public/vue-app/lead";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 

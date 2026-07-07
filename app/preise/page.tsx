@@ -4,7 +4,7 @@ import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import CtaSection from "@/components/sections/CtaSection";
 
-const LEAD_URL = "https://app.friendsmove.de/web/public/konto";
+const LEAD_URL = "https://app.friendsmove.de/web/public/vue-app/lead";
 
 export const metadata: Metadata = {
   title: "Umzugspreise & Kosten – Transparent & Fair | FriendsMove",

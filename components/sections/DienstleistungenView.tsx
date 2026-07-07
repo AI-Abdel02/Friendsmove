@@ -6,7 +6,7 @@ import Script from "next/script";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const LEAD_URL = "https://app.friendsmove.de/web/public/konto";
+const LEAD_URL = "https://app.friendsmove.de/web/public/vue-app/lead";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 

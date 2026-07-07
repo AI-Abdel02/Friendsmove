@@ -90,7 +90,7 @@ export default function RegionsSection() {
                 </p>
               </div>
               <a
-                href="https://app.friendsmove.de/web/public/konto"
+                href="https://app.friendsmove.de/web/public/vue-app/lead"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-shrink-0 rounded-full bg-[#00FF88] text-[#062014] font-bold text-sm px-6 py-3 shadow-[0_8px_30px_rgba(0,255,136,0.25)] hover:bg-[#00CC6E] transition-all"

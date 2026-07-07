@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const LEAD_URL =
-  "https://app.friendsmove.de/web/public/konto?source=check24";
+  "https://app.friendsmove.de/web/public/vue-app/lead?source=check24";
 
 const BENEFITS = [
   {

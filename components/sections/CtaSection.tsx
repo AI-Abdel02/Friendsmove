@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/i18n";
 
-const LEAD_URL = "https://app.friendsmove.de/web/public/konto";
+const LEAD_URL = "https://app.friendsmove.de/web/public/vue-app/lead";
 
 export default function CtaSection() {
   const { lang } = useLanguage();
