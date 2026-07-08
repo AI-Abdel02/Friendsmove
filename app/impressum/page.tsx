@@ -21,8 +21,8 @@ export default function ImpressumPage() {
             </h2>
             <div className="card p-6">
               <p className="font-semibold text-brand-dark mb-1">SCHACHSERVICE</p>
-              <p>Musterstraße 1</p>
-              <p>68161 Mannheim</p>
+              <p>Draisstraße 69</p>
+              <p>68169 Mannheim</p>
               <p>Deutschland</p>
             </div>
           </section>
@@ -51,8 +51,8 @@ export default function ImpressumPage() {
             </h2>
             <div className="card p-6 text-brand-muted">
               <p>Geschäftsführer: Nawras Rahal</p>
-              <p>Musterstraße 1</p>
-              <p>68161 Mannheim</p>
+              <p>Draisstraße 69</p>
+              <p>68169 Mannheim</p>
             </div>
           </section>
 
