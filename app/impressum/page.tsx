@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import { PHONE, PHONE_DISPLAY, EMAIL, ADDRESS, SITE_NAME } from "@/lib/seo";
+import { EMAIL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Impressum | FriendsMove",
@@ -20,9 +20,9 @@ export default function ImpressumPage() {
               Angaben gemäß § 5 TMG
             </h2>
             <div className="card p-6">
-              <p className="font-semibold text-brand-dark mb-1">{SITE_NAME} GmbH</p>
-              <p>{ADDRESS.street}</p>
-              <p>{ADDRESS.zip} {ADDRESS.city}</p>
+              <p className="font-semibold text-brand-dark mb-1">SCHACHSERVICE</p>
+              <p>Musterstraße 1</p>
+              <p>68161 Mannheim</p>
               <p>Deutschland</p>
             </div>
           </section>
@@ -30,27 +30,18 @@ export default function ImpressumPage() {
           <section aria-labelledby="kontakt-heading">
             <h2 id="kontakt-heading" className="font-display font-bold text-xl text-brand-dark mb-4">Kontakt</h2>
             <div className="card p-6 flex flex-col gap-2">
-              <p>Telefon: <a href={`tel:${PHONE}`} className="text-brand-accent hover:underline">{PHONE_DISPLAY}</a></p>
+              <p>Telefon: <a href="tel:+4917641726196" className="text-brand-accent hover:underline">+49 176 41726196</a></p>
               <p>E-Mail: <a href={`mailto:${EMAIL}`} className="text-brand-accent hover:underline">{EMAIL}</a></p>
             </div>
           </section>
 
-          <section aria-labelledby="register-heading">
-            <h2 id="register-heading" className="font-display font-bold text-xl text-brand-dark mb-4">Handelsregister</h2>
-            <div className="card p-6 flex flex-col gap-2 text-brand-muted">
-              <p>Eingetragen im Handelsregister</p>
-              <p>Registergericht: Amtsgericht Mannheim</p>
-              <p>Registernummer: [Handelsregisternummer eintragen]</p>
-            </div>
-          </section>
-
-          <section aria-labelledby="ust-heading">
-            <h2 id="ust-heading" className="font-display font-bold text-xl text-brand-dark mb-4">
-              Umsatzsteuer-ID
+          <section aria-labelledby="steuer-heading">
+            <h2 id="steuer-heading" className="font-display font-bold text-xl text-brand-dark mb-4">
+              Steuernummer
             </h2>
             <div className="card p-6 text-brand-muted">
-              <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:</p>
-              <p className="font-semibold text-brand-dark mt-1">[USt-ID eintragen]</p>
+              <p>Steuernummer:</p>
+              <p className="font-semibold text-brand-dark mt-1">37320/21862</p>
             </div>
           </section>
 
@@ -59,9 +50,9 @@ export default function ImpressumPage() {
               Verantwortlich für den Inhalt gemäß § 55 Abs. 2 RStV
             </h2>
             <div className="card p-6 text-brand-muted">
-              <p>[Vor- und Nachname]</p>
-              <p>{ADDRESS.street}</p>
-              <p>{ADDRESS.zip} {ADDRESS.city}</p>
+              <p>Geschäftsführer: Nawras Rahal</p>
+              <p>Musterstraße 1</p>
+              <p>68161 Mannheim</p>
             </div>
           </section>
 
